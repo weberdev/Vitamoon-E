@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://dm46aiycg1qm3"]
+[gd_scene load_steps=2 format=3 uid="uid://dm46aiycg1qm3"]
+
+[ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_nfx5t"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_nfx5t")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
