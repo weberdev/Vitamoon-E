@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://dm46aiycg1qm3"]
+
+[ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_nfx5t"]
+[ext_resource type="Texture2D" uid="uid://chkesg8qkbcpi" path="res://assets_2d/placeholder.png" id="2_84d7u"]
+[ext_resource type="Texture2D" uid="uid://b0y15yw1lstii" path="res://assets_2d/Neutral Pose Evil Sunny-E Guy.png" id="3_0l2ku"]
+[ext_resource type="Script" uid="uid://yf1wcbcic5t" path="res://enemy.gd" id="4_bat3h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfx5t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0l2ku"]
+albedo_texture = ExtResource("2_84d7u")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_84d7u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_84d7u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bat3h"]
+albedo_texture = ExtResource("2_84d7u")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0l2ku"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_nfx5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0)
+mesh = SubResource("BoxMesh_nfx5t")
+surface_material_override/0 = SubResource("StandardMaterial3D_0l2ku")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0)
+shape = SubResource("BoxShape3D_84d7u")
+
+[node name="WallCube" type="StaticBody3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 5, 2.5, 5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WallCube"]
+mesh = SubResource("BoxMesh_84d7u")
+surface_material_override/0 = SubResource("StandardMaterial3D_bat3h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCube"]
+shape = SubResource("BoxShape3D_0l2ku")
+
+[node name="Enemy" type="Sprite3D" parent="." groups=["Enemy"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.5, -20.829)
+billboard = 1
+texture = ExtResource("3_0l2ku")
+script = ExtResource("4_bat3h")
