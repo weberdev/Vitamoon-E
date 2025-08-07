@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://dm46aiycg1qm3"]
+[gd_scene load_steps=21 format=3 uid="uid://dm46aiycg1qm3"]
 
 [ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_nfx5t"]
+[ext_resource type="Texture2D" uid="uid://cvgvu1cr6bfti" path="res://assets_2d/Ceiling Asset.png" id="2_mch7c"]
 [ext_resource type="Texture2D" uid="uid://4g1eenvd3ewx" path="res://assets_2d/Floor Asset.png" id="2_wn0rb"]
 [ext_resource type="PackedScene" uid="uid://b5lgckq7qaa54" path="res://assets_3d/enemy.tscn" id="3_bat3h"]
 [ext_resource type="PackedScene" uid="uid://b467yg15emaol" path="res://assets_3d/roughLevelLayout.blend" id="4_n61lq"]
@@ -30,6 +31,12 @@ albedo_texture = ExtResource("6_mch7c")
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mch7c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b65dc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b65dc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a81nr"]
+albedo_texture = ExtResource("2_mch7c")
+uv1_scale = Vector3(200, 200, 200)
 
 [node name="Node3D" type="Node3D"]
 
@@ -253,7 +260,7 @@ mesh = SubResource("PlaneMesh_b65dc")
 surface_material_override/0 = SubResource("StandardMaterial3D_28kja")
 
 [node name="Walltemplate3" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -12)
 
 [node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3" instance=ExtResource("6_wn0rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
@@ -291,17 +298,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 [node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate"]
-transform = Transform3D(-2, -8.74228e-08, 7.64274e-15, 0, -4.37114e-08, -2, 1.74846e-07, -1, 8.74228e-08, 0, -2.5, 0)
-visible = false
-mesh = SubResource("PlaneMesh_b65dc")
-surface_material_override/0 = SubResource("StandardMaterial3D_28kja")
+[node name="Walltemplate2" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 6)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate"]
-transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, -2.5, 0)
-visible = false
-mesh = SubResource("PlaneMesh_b65dc")
-surface_material_override/0 = SubResource("StandardMaterial3D_28kja")
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate2" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate2/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Walltemplate2" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate2/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate2/Walltemplate/Walltemplate2" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Walltemplate2" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate2" instance=ExtResource("6_wn0rb")]
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate2/Walltemplate2" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate2/Walltemplate2/Walltemplate2/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 
 [node name="Walltemplate3" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3" instance=ExtResource("6_wn0rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4, 0)
@@ -310,6 +328,66 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 
 [node name="Walltemplate4" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate3" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Walltemplate4" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Walltemplate2" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 0)
+
+[node name="Walltemplate2" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate/Walltemplate/Walltemplate2" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Walltemplate2" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 0)
+
+[node name="Walltemplate2" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate2" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate2/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate"]
+transform = Transform3D(-2, -8.74228e-08, 7.64274e-15, 0, -4.37114e-08, -2, 1.74846e-07, -1, 8.74228e-08, 0, -2.5, 0)
+visible = false
+mesh = SubResource("PlaneMesh_b65dc")
+surface_material_override/0 = SubResource("StandardMaterial3D_28kja")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate"]
+transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, -2.5, 0)
+visible = false
+mesh = SubResource("PlaneMesh_b65dc")
+surface_material_override/0 = SubResource("StandardMaterial3D_28kja")
+
+[node name="Walltemplate3" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 4, 0)
+
+[node name="Walltemplate3" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate3" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Walltemplate4" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate3/Walltemplate4/Walltemplate3" instance=ExtResource("6_wn0rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 
 [node name="Walltemplate5" parent="Walltemplate" instance=ExtResource("6_wn0rb")]
@@ -605,5 +683,15 @@ shape = SubResource("CapsuleShape3D_b65dc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 billboard = 1
 texture = ExtResource("7_dbuty")
+
+[node name="celing" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 8, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="celing"]
+transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0)
+mesh = SubResource("BoxMesh_b65dc")
+surface_material_override/0 = SubResource("StandardMaterial3D_a81nr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="celing"]
 
 [editable path="roughLevelLayout"]
