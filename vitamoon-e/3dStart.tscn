@@ -685,7 +685,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 [node name="Walltemplate" parent="Walltemplate/Walltemplate5/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate" instance=ExtResource("6_wn0rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("3_bat3h")]
+[node name="deprecatedEnemy" parent="." instance=ExtResource("3_bat3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53259, -10.2957)
 visible = false
 
@@ -832,19 +832,20 @@ stream = ExtResource("10_28kja")
 pitch_scale = 2.22
 autoplay = true
 
-[node name="MobileHostile" type="CharacterBody3D" parent="."]
+[node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 script = ExtResource("11_e86qx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MobileHostile"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
 transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 0.7, 0, 0, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_e86qx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MobileHostile"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
 transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_0y26d")
 
-[node name="Sprite3D" type="Sprite3D" parent="MobileHostile"]
+[node name="Sprite3D" type="Sprite3D" parent="Enemy"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 billboard = 1
 texture = ExtResource("11_a81nr")

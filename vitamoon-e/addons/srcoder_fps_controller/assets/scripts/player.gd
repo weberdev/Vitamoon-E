@@ -1,4 +1,9 @@
 extends CharacterBody3D
+var health = 4
+
+func take_damage(damage: int):
+	health-=damage
+	$CanvasLayer
 
 ## The movement speed in m/s. Default is 5.
 @export_range(1.0,30.0) var speed : float = 5.0

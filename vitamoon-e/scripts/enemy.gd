@@ -1,6 +1,7 @@
+extends StaticBody3D
 @export var speed: float = 2.0
 var player
-extends StaticBody3D
+
 
 var health = 3
 var static_sprite = load("res://assets_2d/Neutral Pose Evil Sunny-E Guy.png")
