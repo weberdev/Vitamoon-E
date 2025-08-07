@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dm46aiycg1qm3"]
+[gd_scene load_steps=15 format=3 uid="uid://dm46aiycg1qm3"]
 
 [ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_nfx5t"]
 [ext_resource type="Texture2D" uid="uid://4g1eenvd3ewx" path="res://assets_2d/Floor Asset.png" id="2_wn0rb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b467yg15emaol" path="res://assets_3d/roughLevelLayout.blend" id="4_n61lq"]
 [ext_resource type="Material" uid="uid://dq5r6yu0d0nu5" path="res://assets_2d/redhash.tres" id="5_wn0rb"]
 [ext_resource type="PackedScene" uid="uid://d0fdeok8xwmpf" path="res://assets_3d/walltemplate.tscn" id="6_wn0rb"]
+[ext_resource type="Texture2D" uid="uid://drbxpg0phxqd3" path="res://assets_2d/Pillar Asset.png" id="7_dbuty"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wn0rb"]
 
@@ -19,6 +20,10 @@ uv1_scale = Vector3(2000, 2000, 2000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mch7c"]
 albedo_color = Color(0.984314, 0.0980392, 0, 0.447059)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mch7c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b65dc"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -44,9 +49,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0l2ku")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0)
 shape = SubResource("BoxShape3D_bat3h")
-
-[node name="Enemy" parent="." instance=ExtResource("3_bat3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53259, -10.2957)
 
 [node name="roughLevelLayout" parent="." instance=ExtResource("4_n61lq")]
 visible = false
@@ -222,6 +224,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 [node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate" instance=ExtResource("6_wn0rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="Walltemplate" parent="Walltemplate/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate" instance=ExtResource("6_wn0rb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
 [node name="Walltemplate5" parent="Walltemplate" instance=ExtResource("6_wn0rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
@@ -384,5 +395,104 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
 [node name="Walltemplate" parent="Walltemplate/Walltemplate5/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate" instance=ExtResource("6_wn0rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("3_bat3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53259, -10.2957)
+
+[node name="Pillar" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar"]
+visible = false
+mesh = SubResource("CapsuleMesh_mch7c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_b65dc")
+
+[node name="Sprite3D" type="Sprite3D" parent="Pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+billboard = 1
+texture = ExtResource("7_dbuty")
+
+[node name="Pillar" type="StaticBody3D" parent="Pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar"]
+visible = false
+mesh = SubResource("CapsuleMesh_mch7c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar/Pillar"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_b65dc")
+
+[node name="Sprite3D" type="Sprite3D" parent="Pillar/Pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+billboard = 1
+texture = ExtResource("7_dbuty")
+
+[node name="Pillar" type="StaticBody3D" parent="Pillar/Pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar/Pillar"]
+visible = false
+mesh = SubResource("CapsuleMesh_mch7c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar/Pillar/Pillar"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_b65dc")
+
+[node name="Sprite3D" type="Sprite3D" parent="Pillar/Pillar/Pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+billboard = 1
+texture = ExtResource("7_dbuty")
+
+[node name="Pillar2" type="StaticBody3D" parent="Pillar/Pillar/Pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar/Pillar/Pillar2"]
+visible = false
+mesh = SubResource("CapsuleMesh_mch7c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar/Pillar/Pillar/Pillar2"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_b65dc")
+
+[node name="Sprite3D" type="Sprite3D" parent="Pillar/Pillar/Pillar/Pillar2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+billboard = 1
+texture = ExtResource("7_dbuty")
+
+[node name="Pillar2" type="StaticBody3D" parent="Pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2"]
+visible = false
+mesh = SubResource("CapsuleMesh_mch7c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar/Pillar2"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_b65dc")
+
+[node name="Sprite3D" type="Sprite3D" parent="Pillar/Pillar2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+billboard = 1
+texture = ExtResource("7_dbuty")
+
+[node name="Pillar3" type="StaticBody3D" parent="Pillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3"]
+visible = false
+mesh = SubResource("CapsuleMesh_mch7c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar/Pillar3"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_b65dc")
+
+[node name="Sprite3D" type="Sprite3D" parent="Pillar/Pillar3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+billboard = 1
+texture = ExtResource("7_dbuty")
 
 [editable path="roughLevelLayout"]
