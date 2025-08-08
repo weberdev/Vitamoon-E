@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy26xc485fhld"]
+[gd_scene load_steps=10 format=3 uid="uid://dy26xc485fhld"]
 
 [ext_resource type="Script" uid="uid://cgspld8qg8gus" path="res://addons/srcoder_fps_controller/assets/scripts/player.gd" id="1_f6swd"]
 [ext_resource type="Texture2D" uid="uid://bdx5o1m25w51u" path="res://assets_2d/Gun Asset.png" id="2_3a7xk"]
 [ext_resource type="Material" uid="uid://xksju4002ur7" path="res://addons/srcoder_fps_controller/assets/materials/white.material" id="2_fs15m"]
 [ext_resource type="Script" uid="uid://cmxyqsp8cs54i" path="res://addons/srcoder_fps_controller/HUD.gd" id="2_wowln"]
 [ext_resource type="Texture2D" uid="uid://depxfa0jsp7g0" path="res://assets_2d/dot_crosshair.png" id="3_fma8c"]
+[ext_resource type="Texture2D" uid="uid://deeuu0t2xr6vk" path="res://assets_2d/Muzzle Flash Asset.png" id="4_f8o5g"]
 [ext_resource type="Script" uid="uid://du00baxkimfjx" path="res://scripts/weapon_manager.gd" id="5_qy71c"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntw7j"]
@@ -31,6 +32,23 @@ offset_right = -104.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("2_3a7xk")
+expand_mode = 1
+
+[node name="GunMuzzleFlash" type="TextureRect" parent="CanvasLayer"]
+visible = false
+z_index = -1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -488.0
+offset_top = -372.0
+offset_right = -179.0
+offset_bottom = -91.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_f8o5g")
 expand_mode = 1
 
 [node name="Crosshair" type="TextureRect" parent="CanvasLayer"]
