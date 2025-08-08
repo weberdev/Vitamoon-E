@@ -1,15 +1,12 @@
 extends CharacterBody3D
 
-@export var max_health: int = 4
-var current_health: int = max_health
+
+
 
 func take_damage(damage: int):
-	current_health -= damage
-	current_health = clamp(current_health, 0, max_health)
-	update_health_ui()
+	health_manager.take_damage(damage)
 
-func update_health_ui():
-	$CanvasLayer.update_hearts(current_health)
+
 
 
 ## The movement speed in m/s. Default is 5.
@@ -32,8 +29,21 @@ var pitch = 0
 
 # the camera pivot for head pitch movement
 @onready var camera_pivot : Node3D = $CameraPivot
+
+@onready var health_manager  = $CameraPivot/Camera3D/Health_Manager
+@onready var hud = $CanvasLayer    
+var ICONS := {
+	4: preload("res://assets_2d/Player Health Asset - Full.png"),
+	3: preload("res://assets_2d/Player Health Asset - Three Quarters.png"),
+	2: preload("res://assets_2d/Player Health Asset - Half.png"),
+	1: preload("res://assets_2d/Player Health Asset - One Quarter.png"),
+	0: preload("res://assets_2d/Player Health Asset - Zero.png"),
+}
+
 func _ready():
-	update_health_ui()
+	health_manager.health_changed.connect(hud.update_hearts)
+	hud.update_hearts(health_manager.health)
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
