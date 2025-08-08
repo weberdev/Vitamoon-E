@@ -44,5 +44,5 @@ func _physics_process(delta):
 		
 func attack_player():
 	#print("OOGA BOOGA")
-	$Sprite3d.texture= attacking_sprite
+	$Sprite3D.texture= attacking_sprite
 	player.take_damage(1)
