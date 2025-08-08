@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cv4bnw1ptg1xf" path="res://assets_2d/Wall Asset With Empty Doorway.png" id="6_mch7c"]
 [ext_resource type="PackedScene" uid="uid://d0fdeok8xwmpf" path="res://assets_3d/walltemplate.tscn" id="6_wn0rb"]
 [ext_resource type="Texture2D" uid="uid://drbxpg0phxqd3" path="res://assets_2d/Pillar Asset.png" id="7_dbuty"]
-[ext_resource type="AudioStream" uid="uid://ckjhx61atfcky" path="res://assets_3d/sun_and_moon.wav" id="10_28kja"]
+[ext_resource type="AudioStream" uid="uid://ckjhx61atfcky" path="res://sounds/sun_and_moon.wav" id="10_28kja"]
 [ext_resource type="Texture2D" uid="uid://cfsnucr0v2121" path="res://assets_2d/Attacking Pose Evil Sunny-E Guy.png" id="11_a81nr"]
 [ext_resource type="Script" uid="uid://dacvmxm4lwsbo" path="res://mobile_hostile.gd" id="11_e86qx"]
 

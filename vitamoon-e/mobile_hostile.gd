@@ -5,7 +5,7 @@ var player
 
 var health = 3
 var static_sprite = load("res://assets_2d/Neutral Pose Evil Sunny-E Guy.png")
-var attacking_sprite = load("res://assets_2d/Going to  Strike Pose Evil Sunny-E Guy.png")
+var attacking_sprite = load("res://assets_2d/Going to Strike Pose Evil Sunny-E Guy.png")
 var dead_sprite = load("res://assets_2d/Dead Pose Evil Sunny-E Guy.png")
 
 func _ready():
