@@ -43,6 +43,8 @@ func _ready():
 func _on_health_changed(h:int) -> void:
 	h = clamp(h, 0, 4)
 	moonHealth.texture = ICONS[h]
+	if h == 0:
+		die()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -78,6 +80,11 @@ func _physics_process(delta):
 	#reset it
 	mouse_motion = Vector2.ZERO
 	
+
+func die():
+	print("dead")
+	# more to come
+
 
 #handle and store mouse motion
 func _input(event: InputEvent):
