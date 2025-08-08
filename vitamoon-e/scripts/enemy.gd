@@ -11,6 +11,10 @@ var dead_sprite = load("res://assets_2d/Dead Pose Evil Sunny-E Guy.png")
 func ready():
 	$Sprite3D.texture = static_sprite
 	player = get_tree().get_root().get_node("Node3D/Player")
+	if player:
+		print("player found!")
+	else:
+		print("No player ofund>")
 
 func Hit(damage):
 	health -= damage
