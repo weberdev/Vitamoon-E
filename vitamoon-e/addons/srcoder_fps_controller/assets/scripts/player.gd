@@ -9,7 +9,7 @@ func take_damage(damage: int):
 	update_health_ui()
 
 func update_health_ui():
-	$HUD.update_hearts(current_health)
+	$CanvasLayer.update_hearts(current_health)
 
 
 ## The movement speed in m/s. Default is 5.
@@ -32,7 +32,8 @@ var pitch = 0
 
 # the camera pivot for head pitch movement
 @onready var camera_pivot : Node3D = $CameraPivot
-
+func _ready():
+	update_health_ui()
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dy26xc485fhld"]
+[gd_scene load_steps=11 format=3 uid="uid://dy26xc485fhld"]
 
 [ext_resource type="Script" uid="uid://cgspld8qg8gus" path="res://addons/srcoder_fps_controller/assets/scripts/player.gd" id="1_f6swd"]
 [ext_resource type="Texture2D" uid="uid://bdx5o1m25w51u" path="res://assets_2d/Gun Asset.png" id="2_3a7xk"]
 [ext_resource type="Material" uid="uid://xksju4002ur7" path="res://addons/srcoder_fps_controller/assets/materials/white.material" id="2_fs15m"]
-[ext_resource type="Script" uid="uid://cmxyqsp8cs54i" path="res://addons/srcoder_fps_controller/HUD.gd" id="2_wowln"]
+[ext_resource type="Script" uid="uid://cmxyqsp8cs54i" path="res://addons/srcoder_fps_controller/CanvasLayer.gd" id="2_wowln"]
 [ext_resource type="Texture2D" uid="uid://depxfa0jsp7g0" path="res://assets_2d/dot_crosshair.png" id="3_fma8c"]
 [ext_resource type="Texture2D" uid="uid://deeuu0t2xr6vk" path="res://assets_2d/Muzzle Flash Asset.png" id="4_f8o5g"]
 [ext_resource type="Script" uid="uid://du00baxkimfjx" path="res://scripts/weapon_manager.gd" id="5_qy71c"]
+[ext_resource type="Script" uid="uid://bqpyvar8oe54q" path="res://addons/srcoder_fps_controller/health_manager.gd" id="8_jms3g"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ntw7j"]
 
@@ -60,17 +61,7 @@ grow_vertical = 2
 texture = ExtResource("3_fma8c")
 stretch_mode = 3
 
-[node name="HealthDisplay" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HealthDisplay"]
-layout_mode = 0
+[node name="HPTracker" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -90,3 +81,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49559, 0)
 
 [node name="Weapon_Manager" type="Node3D" parent="CameraPivot/Camera3D"]
 script = ExtResource("5_qy71c")
+
+[node name="Health_Manager" type="Node3D" parent="CameraPivot/Camera3D"]
+script = ExtResource("8_jms3g")
