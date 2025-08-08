@@ -1,7 +1,11 @@
 extends CharacterBody3D
 @export var speed: float = 2.0
 var player
-
+@export var atk_cooldown := 0.6
+@export var atk_dmg := 1
+var _next_atk_tim := 0.0
+@export var _attack_pose_time := 0.2
+var _is_atk := false
 
 var health = 3
 var static_sprite = load("res://assets_2d/Neutral Pose Evil Sunny-E Guy.png")
@@ -43,6 +47,14 @@ func _physics_process(delta):
 		attack_player()
 		
 func attack_player():
-	#print("OOGA BOOGA")
+	#print("OOGA BOOGA")N
+	var curTime := Time.get_ticks_msec()/1000.0
+	if curTime < _next_atk_tim:
+		return #on CD
+	_next_atk_tim= curTime+atk_cooldown
 	$Sprite3D.texture= attacking_sprite
-	player.take_damage(1)
+	player.take_damage(atk_dmg)
+	await get_tree().create_timer(_attack_pose_time).timeout
+	if health > 0 and _is_atk: # still alive & still in attack state
+		$Sprite3D.texture = static_sprite
+		_is_atk = false
