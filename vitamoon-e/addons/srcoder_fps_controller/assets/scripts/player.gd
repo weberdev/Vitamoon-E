@@ -1,13 +1,9 @@
 extends CharacterBody3D
 
-
-
-
 func take_damage(damage: int):
 	health_manager.take_damage(damage)
 
-
-
+@onready var moonHealth: TextureRect = get_node("CanvasLayer/HPTracker")
 
 ## The movement speed in m/s. Default is 5.
 @export_range(1.0,30.0) var speed : float = 5.0
@@ -41,8 +37,12 @@ var ICONS := {
 }
 
 func _ready():
-	health_manager.health_changed.connect(hud.update_hearts)
-	hud.update_hearts(health_manager.health)
+	health_manager.health_changed.connect(_on_health_changed)
+	_on_health_changed(health_manager.health)
+
+func _on_health_changed(h:int) -> void:
+	h = clamp(h, 0, 4)
+	moonHealth.texture = ICONS[h]
 
 func _physics_process(delta):
 	# Add the gravity.

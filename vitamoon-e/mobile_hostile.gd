@@ -40,8 +40,9 @@ func _physics_process(delta):
 	else:
 		velocity = Vector3.ZERO
 		move_and_slide()
-		#$Sprite3d.texture= attacking_sprite
 		attack_player()
 		
 func attack_player():
-	print("OOGA BOOGA")
+	#print("OOGA BOOGA")
+	$Sprite3d.texture= attacking_sprite
+	player.take_damage(1)
