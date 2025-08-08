@@ -1,9 +1,16 @@
 extends CharacterBody3D
-var health = 4
+
+@export var max_health: int = 4
+var current_health: int = max_health
 
 func take_damage(damage: int):
-	health-=damage
-	$CanvasLayer
+	current_health -= damage
+	current_health = clamp(current_health, 0, max_health)
+	update_health_ui()
+
+func update_health_ui():
+	$HUD.update_hearts(current_health)
+
 
 ## The movement speed in m/s. Default is 5.
 @export_range(1.0,30.0) var speed : float = 5.0
