@@ -11,6 +11,7 @@ func _input(event):
 	if event.is_action_pressed("shoot") and can_shoot:
 		print("Schut")
 		Shoot()
+		AudioController.Play_Laser_Gunshot()
 		
 		## Show muzzle flash texture
 		muzzle_flash_node.visible = true

@@ -29,6 +29,9 @@ func Hit(damage):
 		$Sprite3D.texture = dead_sprite
 		$Sprite3D.position = $Sprite3D.position - Vector3(0,1,0)
 		$CollisionShape3D.disabled = true
+		AudioController.Play_Monster_Dying_SFX()
+	else:
+		AudioController.Play_Monster_Hurt_SFX()
 		
 func _physics_process(delta):
 	if not player or health <= 0:
