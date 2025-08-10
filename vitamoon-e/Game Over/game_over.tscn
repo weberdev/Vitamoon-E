@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkgmk5veggvy1"]
+[gd_scene load_steps=7 format=3 uid="uid://bkgmk5veggvy1"]
 
 [ext_resource type="Script" uid="uid://ds5n4p1egxmi6" path="res://game_over.gd" id="1_w45li"]
 [ext_resource type="Texture2D" uid="uid://4o4brf7h52nt" path="res://assets_2d/Game Over Screen.png" id="2_vw0ob"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ioc30"]
+bg_color = Color(0.133333, 0.184314, 0.556863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vw0ob"]
+bg_color = Color(0.223529, 0.301961, 0.803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj5wr"]
+bg_color = Color(0.313726, 0.313726, 0.313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmk4c"]
+bg_color = Color(0.423529, 0.423529, 0.423529, 1)
 
 [node name="Game Over" type="Control"]
 layout_mode = 3
@@ -62,21 +74,25 @@ Vitamoon-E, corrupting many...  unless he gets a second wind...
 "
 
 [node name="Retry" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.964706, 0.964706, 0.0745098, 1)
 theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_ioc30")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vw0ob")
 text = "Retry"
 
 [node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.964706, 0.964706, 0.0745098, 1)
 theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_dj5wr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kmk4c")
 text = "Exit"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Retry" to="." method="On_Reset_Pressed"]
