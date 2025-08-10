@@ -43,10 +43,6 @@ func _ready():
 func _on_health_changed(h:int) -> void:
 	h = clamp(h, 0, 4)
 	moonHealth.texture = ICONS[h]
-<<<<<<< HEAD
-	if h == 0:
-		die()
-=======
 	#Checking if player lost health from full or three quarters
 	if h == 3 || h == 2:
 		AudioController.Play_First_Oof_SFX()
@@ -60,7 +56,6 @@ func _on_health_changed(h:int) -> void:
 	elif h == 0:
 		AudioController.Play_Player_Died_SFX()
 		get_tree().change_scene_to_file("res://Game Over/game_over.tscn")	
->>>>>>> 86672d779f9813a75564d9fe361f10a339157a99
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -96,11 +91,6 @@ func _physics_process(delta):
 	#reset it
 	mouse_motion = Vector2.ZERO
 	
-
-func die():
-	print("dead")
-	# more to come
-
 
 #handle and store mouse motion
 func _input(event: InputEvent):
