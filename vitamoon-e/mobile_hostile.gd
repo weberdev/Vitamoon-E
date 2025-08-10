@@ -17,7 +17,6 @@ var dead_sprite      = load("res://assets_2d/Dead Pose Evil Sunny-E Guy.png")
 
 func _ready():
 	$Sprite3D.texture = static_sprite
-	# add_to_group("enemies") # uncomment if not already assigned in editor
 	player = get_node_or_null("/root/Node3D/Player")
 	if player:
 		print("player found!")
@@ -30,13 +29,13 @@ func Hit(damage):
 	health -= damage
 	print("Remaning HP: " + str(health))
 	if health <= 0:
-		is_alive = false                              # <-- use the flag
+		is_alive = false                 
 		$Sprite3D.scale = Vector3(0.4,0.4,0.4)
 		$Sprite3D.texture = dead_sprite
 		$Sprite3D.position -= Vector3(0,1,0)
 		$CollisionShape3D.disabled = true
 		AudioController.Play_Monster_Dying_SFX()
-		emit_signal("dead")                           # emitted exactly once now
+		emit_signal("dead")                     
 		set_physics_process(false)
 	else:
 		AudioController.Play_Monster_Hurt_SFX()
@@ -67,7 +66,7 @@ func attack_player():
 		return # on cooldown
 	_next_atk_tim = curTime + atk_cooldown
 
-	_is_atk = true                                   # <-- set it when attacking
+	_is_atk = true                   
 	$Sprite3D.texture = attacking_sprite
 
 	# Safely hit the player (they might be gone after game over)
@@ -77,7 +76,6 @@ func attack_player():
 	_player_hit_counter += 1
 	if _player_hit_counter < 4:
 		await get_tree().create_timer(_attack_pose_time).timeout
-		# Re-check validity/state after the await
 		if is_alive and not is_queued_for_deletion():
 			_is_atk = false
 			$Sprite3D.texture = static_sprite
