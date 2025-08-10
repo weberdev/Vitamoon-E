@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_nfx5t"]
 [ext_resource type="Texture2D" uid="uid://cvgvu1cr6bfti" path="res://assets_2d/Ceiling Asset.png" id="2_mch7c"]
 [ext_resource type="Texture2D" uid="uid://4g1eenvd3ewx" path="res://assets_2d/Floor Asset.png" id="2_wn0rb"]
-[ext_resource type="PackedScene" uid="uid://b5lgckq7qaa54" path="res://assets_3d/enemy.tscn" id="3_bat3h"]
 [ext_resource type="PackedScene" uid="uid://b467yg15emaol" path="res://assets_3d/roughLevelLayout.blend" id="4_n61lq"]
 [ext_resource type="Material" uid="uid://dq5r6yu0d0nu5" path="res://assets_2d/redhash.tres" id="5_wn0rb"]
 [ext_resource type="Texture2D" uid="uid://cv4bnw1ptg1xf" path="res://assets_2d/Wall Asset With Empty Doorway.png" id="6_mch7c"]
@@ -12,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ckjhx61atfcky" path="res://sounds/sun_and_moon.wav" id="10_28kja"]
 [ext_resource type="Texture2D" uid="uid://cfsnucr0v2121" path="res://assets_2d/Attacking Pose Evil Sunny-E Guy.png" id="11_a81nr"]
 [ext_resource type="Script" uid="uid://dacvmxm4lwsbo" path="res://mobile_hostile.gd" id="11_e86qx"]
+[ext_resource type="Script" uid="uid://clmv4w53xvykf" path="res://GameManager.gd" id="13_0y26d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wn0rb"]
 
@@ -690,10 +690,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 [node name="Walltemplate" parent="Walltemplate/Walltemplate5/Walltemplate4/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate/Walltemplate2/Walltemplate" instance=ExtResource("6_wn0rb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="deprecatedEnemy" parent="." instance=ExtResource("3_bat3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53259, -10.2957)
-visible = false
-
 [node name="Pillar" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 10)
 
@@ -849,5 +845,8 @@ shape = SubResource("ConvexPolygonShape3D_0y26d")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 billboard = 1
 texture = ExtResource("11_a81nr")
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("13_0y26d")
 
 [editable path="roughLevelLayout"]
