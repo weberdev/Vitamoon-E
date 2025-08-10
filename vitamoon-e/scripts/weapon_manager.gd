@@ -9,16 +9,17 @@ func _ready():
 	
 func _input(event):
 	if event.is_action_pressed("shoot") and can_shoot:
-		print("Schut")
+		## Limit fire rate with timer
+		var timer = get_tree().create_timer(0.4)
+		timer.timeout.connect(timeout_function)
+		
 		Shoot()
 		AudioController.Play_Laser_Gunshot()
 		
 		## Show muzzle flash texture
 		muzzle_flash_node.visible = true
 		
-		## Limit fire rate with timer
-		var timer = get_tree().create_timer(0.4)
-		timer.timeout.connect(timeout_function)
+
 
 func Shoot():
 	can_shoot = false
