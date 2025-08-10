@@ -6,6 +6,8 @@ var player
 var _next_atk_tim := 0.0
 @export var _attack_pose_time := 0.2
 var _is_atk := false
+#Added player hit counter so we stop attacking if player is dead
+var _player_hit_counter = 0
 
 var health = 3
 var static_sprite = load("res://assets_2d/Neutral Pose Evil Sunny-E Guy.png")
@@ -18,7 +20,7 @@ func _ready():
 	if player:
 		print("player found!")
 	else:
-		print("No player ofund>")
+		print("No player found")
 
 
 func Hit(damage):
@@ -57,7 +59,13 @@ func attack_player():
 	_next_atk_tim= curTime+atk_cooldown
 	$Sprite3D.texture= attacking_sprite
 	player.take_damage(atk_dmg)
-	await get_tree().create_timer(_attack_pose_time).timeout
-	if health > 0 and _is_atk: # still alive & still in attack state
-		$Sprite3D.texture = static_sprite
-		_is_atk = false
+	#Ensure the enemy stops attacking if the player has died. This conditional is
+	#done as otherwise, the enemy keeps attacking and the get_tree() throws an exception
+	#as we've moved on to the game over screen, yet it is still trying to grab the main game
+	#instance. A better fix may be to change the timer to not use the tree.
+	_player_hit_counter += 1
+	if (_player_hit_counter < 4):
+		await get_tree().create_timer(_attack_pose_time).timeout
+		if health > 0 and _is_atk: # still alive & still in attack state
+			$Sprite3D.texture = static_sprite
+			_is_atk = false

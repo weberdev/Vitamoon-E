@@ -53,9 +53,9 @@ func _on_health_changed(h:int) -> void:
 	#have to repeatedly hear the player die when taking damage after he died.
 	#Uncomment this out once we can properly end the game.
 	#Check if player is already dead.
-	#elif h == 0:	
-		#AudioController.Play_Player_Died_SFX()
-		
+	elif h == 0:
+		AudioController.Play_Player_Died_SFX()
+		get_tree().change_scene_to_file("res://Game Over/game_over.tscn")	
 
 func _physics_process(delta):
 	# Add the gravity.
