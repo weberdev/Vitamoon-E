@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1wykdak3gc5b"]
+
+[ext_resource type="Script" uid="uid://d3f6qu78667nv" path="res://sounds/audio_controller.gd" id="1_owd64"]
+[ext_resource type="AudioStream" uid="uid://bx80c1p0axbp0" path="res://sounds/Laser Gunshot Bitcrushed.wav" id="2_6ap2h"]
+[ext_resource type="AudioStream" uid="uid://cxjljuejawwme" path="res://sounds/Player Hurt Sound #1 Bitcrushed.wav" id="3_cvitu"]
+[ext_resource type="AudioStream" uid="uid://c8sksea33adqu" path="res://sounds/Player Hurt Sound #2 Bitcrushed.wav" id="4_6ap2h"]
+[ext_resource type="AudioStream" path="res://sounds/Player Dead SFX.wav" id="5_cvitu"]
+[ext_resource type="AudioStream" uid="uid://b3kpx4preljmv" path="res://sounds/Monster Sound Dead Bitcrushed.wav" id="6_iboit"]
+[ext_resource type="AudioStream" uid="uid://dxn54estfvw3r" path="res://sounds/Monster Sound Hurt Bitcrushed.wav" id="7_6ap2h"]
+
+[node name="AudioController" type="Node2D"]
+script = ExtResource("1_owd64")
+
+[node name="Shoot SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_6ap2h")
+
+[node name="Player Hurt SFX #1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cvitu")
+
+[node name="Player Hurt SFX #2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6ap2h")
+
+[node name="Player Dead SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_cvitu")
+
+[node name="Monster Dead SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_iboit")
+
+[node name="Monster Hurt SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6ap2h")
+volume_db = 5.0

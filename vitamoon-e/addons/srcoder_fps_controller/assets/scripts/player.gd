@@ -43,8 +43,24 @@ func _ready():
 func _on_health_changed(h:int) -> void:
 	h = clamp(h, 0, 4)
 	moonHealth.texture = ICONS[h]
+<<<<<<< HEAD
 	if h == 0:
 		die()
+=======
+	#Checking if player lost health from full or three quarters
+	if h == 3 || h == 2:
+		AudioController.Play_First_Oof_SFX()
+	#Checking if player lost health from half
+	elif h == 1:
+		AudioController.Play_Second_Oof_SFX()
+	#While we don't yet have an end screen, this is commented out so you don't
+	#have to repeatedly hear the player die when taking damage after he died.
+	#Uncomment this out once we can properly end the game.
+	#Check if player is already dead.
+	elif h == 0:
+		AudioController.Play_Player_Died_SFX()
+		get_tree().change_scene_to_file("res://Game Over/game_over.tscn")	
+>>>>>>> 86672d779f9813a75564d9fe361f10a339157a99
 
 func _physics_process(delta):
 	# Add the gravity.

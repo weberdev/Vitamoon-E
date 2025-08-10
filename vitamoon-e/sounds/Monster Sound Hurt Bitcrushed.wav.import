@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxn54estfvw3r"
+path="res://.godot/imported/Monster Sound Hurt Bitcrushed.wav-e30a9c238ff203175996308426197965.sample"
+
+[deps]
+
+source_file="res://sounds/Monster Sound Hurt Bitcrushed.wav"
+dest_files=["res://.godot/imported/Monster Sound Hurt Bitcrushed.wav-e30a9c238ff203175996308426197965.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bx80c1p0axbp0"
+path="res://.godot/imported/Laser Gunshot Bitcrushed.wav-0b5a49d474b58bf1218b24dbe67a46fa.sample"
+
+[deps]
+
+source_file="res://sounds/Laser Gunshot Bitcrushed.wav"
+dest_files=["res://.godot/imported/Laser Gunshot Bitcrushed.wav-0b5a49d474b58bf1218b24dbe67a46fa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

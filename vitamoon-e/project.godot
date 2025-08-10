@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Vitamoon E"
-run/main_scene="uid://dm46aiycg1qm3"
+run/main_scene="uid://pq0420f55mgs"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+AudioController="*res://sounds/Audio Controller.tscn"
 
 [input]
 
