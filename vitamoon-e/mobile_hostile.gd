@@ -15,6 +15,8 @@ var static_sprite    = load("res://assets_2d/Neutral Pose Evil Sunny-E Guy.png")
 var attacking_sprite = load("res://assets_2d/Going to Strike Pose Evil Sunn-E Guy.png")
 var dead_sprite      = load("res://assets_2d/Dead Pose Evil Sunny-E Guy.png")
 
+@onready var nav_agent = $NavigationAgent3D
+
 func _ready():
 	$Sprite3D.texture = static_sprite
 	player = get_node_or_null("/root/Node3D/Player")
@@ -43,12 +45,14 @@ func Hit(damage):
 func _physics_process(delta):
 	if not is_alive or player == null or health <= 0:
 		return
-
+		
 	var to_player = player.global_transform.origin - global_transform.origin
 	var distance = to_player.length()
 	if distance > 1.5:
-		var direction = to_player.normalized()
-		velocity = direction * speed
+		var current_location = global_transform.origin
+		var next_location = nav_agent.get_next_path_position()
+		var new_velocity = (next_location - current_location).normalized() * speed
+		velocity = velocity.move_toward(new_velocity, .25)
 		move_and_slide()
 		if not _is_atk:
 			$Sprite3D.texture = static_sprite
@@ -56,6 +60,9 @@ func _physics_process(delta):
 		velocity = Vector3.ZERO
 		move_and_slide()
 		attack_player()
+
+func update_target_location(target_location):
+	nav_agent.set_target_position(target_location)
 
 func attack_player():
 	if not is_alive or player == null:
