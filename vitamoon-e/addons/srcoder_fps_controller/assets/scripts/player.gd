@@ -6,7 +6,7 @@ func take_damage(damage: int):
 @onready var moonHealth: TextureRect = get_node("CanvasLayer/HPTracker")
 
 ## The movement speed in m/s. Default is 5.
-@export_range(1.0,30.0) var speed : float = 5.0
+@export_range(1.0,30.0) var speed : float = 15.0
 ## The Jump Velocity in m/s- default to 6.0
 @export_range(2.0,10.0) var jump_velocity : float = 6.0
 
@@ -16,7 +16,7 @@ var mouse_motion : Vector2 = Vector2.ZERO
 var pitch = 0
 
 ## The amount of acceleration on the ground- less feels floaty, more is snappy-[br]Default is 4
-@export_range(1.0,10.0) var ground_acceleration := 4.0
+@export_range(1.0,10.0) var ground_acceleration := 6.0
 ## the amount of acceleration when in the air. less feels more floaty more is more snappy.[br]Default is 0.5
 @export_range(0.0,5.0) var air_acceleration := 0.5
 

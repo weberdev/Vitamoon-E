@@ -1,21 +1,20 @@
 extends CharacterBody3D
-@export var speed: float = 2.0
-var player
+@onready var nav_agent = $NavigationAgent3D
+@export var speed: float = 10.0
 @export var atk_cooldown := 0.6
 @export var atk_dmg := 1
-var _next_atk_tim := 0.0
 @export var _attack_pose_time := 0.2
-signal dead
+var player
+var _next_atk_tim := 0.0
 var _is_atk := false
 var _player_hit_counter := 0
 var is_alive := true
-
 var health := 3
 var static_sprite    = load("res://assets_2d/Neutral Pose Evil Sunny-E Guy.png")
 var attacking_sprite = load("res://assets_2d/Going to Strike Pose Evil Sunn-E Guy.png")
 var dead_sprite      = load("res://assets_2d/Dead Pose Evil Sunny-E Guy.png")
-
-@onready var nav_agent = $NavigationAgent3D
+var idle = true
+signal dead
 
 func _ready():
 	$Sprite3D.texture = static_sprite
@@ -25,6 +24,17 @@ func _ready():
 	else:
 		print("No player found")
 
+func _process(_delta):
+	## Every 5 frames ray-cast towards the player
+	## If the ray collides with the player then activate
+	if idle and Engine.get_process_frames() % 5 == 0:
+		var ray_origin = global_transform.origin
+		var ray_end = player.global_transform.origin
+		var new_intersection = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+		var intersection = get_world_3d().direct_space_state.intersect_ray(new_intersection)
+		if intersection.collider.is_in_group("Player"):
+			idle = false
+			
 func Hit(damage):
 	if not is_alive:
 		return
@@ -43,7 +53,7 @@ func Hit(damage):
 		AudioController.Play_Monster_Hurt_SFX()
 
 func _physics_process(delta):
-	if not is_alive or player == null or health <= 0:
+	if not is_alive or player == null or health <= 0 or idle:
 		return
 		
 	var to_player = player.global_transform.origin - global_transform.origin
