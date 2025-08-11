@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dm46aiycg1qm3"]
+[gd_scene load_steps=22 format=3 uid="uid://dm46aiycg1qm3"]
 
 [ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_nfx5t"]
 [ext_resource type="Texture2D" uid="uid://cvgvu1cr6bfti" path="res://assets_2d/Ceiling Asset.png" id="2_mch7c"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://drbxpg0phxqd3" path="res://assets_2d/Pillar Asset.png" id="7_dbuty"]
 [ext_resource type="PackedScene" uid="uid://b5lgckq7qaa54" path="res://assets_3d/enemy.tscn" id="9_a81nr"]
 [ext_resource type="AudioStream" uid="uid://ckjhx61atfcky" path="res://sounds/sun_and_moon.wav" id="10_28kja"]
+[ext_resource type="PackedScene" path="res://assets_3d/cubicle.tscn" id="11_a81nr"]
 [ext_resource type="Script" uid="uid://clmv4w53xvykf" path="res://GameManager.gd" id="13_0y26d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b65dc"]
@@ -58,13 +59,14 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4924, 0.0922987, -0.0196364)
 
 [node name="roughLevelLayout" parent="." instance=ExtResource("4_n61lq")]
+visible = false
 
 [node name="celing" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 8, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="celing"]
 transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0)
-visible = false
 mesh = SubResource("BoxMesh_b65dc")
 surface_material_override/0 = SubResource("StandardMaterial3D_a81nr")
 
@@ -1781,5 +1783,35 @@ surface_material_override/0 = SubResource("StandardMaterial3D_e86qx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground"]
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_0y26d")
+
+[node name="cubicle" parent="." instance=ExtResource("11_a81nr")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -138, 1, 5)
+
+[node name="cubicle2" parent="." instance=ExtResource("11_a81nr")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -137, 1, 20)
+
+[node name="cubicle3" parent="." instance=ExtResource("11_a81nr")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -115, 1, -5)
+
+[node name="cubicle3" parent="cubicle3" instance=ExtResource("11_a81nr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 15)
+
+[node name="Enemy2" parent="." instance=ExtResource("9_a81nr")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -130, 0.092, 0)
+
+[node name="Enemy3" parent="." instance=ExtResource("9_a81nr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0.092, -0.02)
+
+[node name="Enemy4" parent="." instance=ExtResource("9_a81nr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0.092, -20)
+
+[node name="Enemy5" parent="." instance=ExtResource("9_a81nr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 0.092, -20)
+
+[node name="Enemy6" parent="." instance=ExtResource("9_a81nr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0.092, 50)
+
+[node name="Enemy7" parent="." instance=ExtResource("9_a81nr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 0.092, 50)
 
 [editable path="roughLevelLayout"]
