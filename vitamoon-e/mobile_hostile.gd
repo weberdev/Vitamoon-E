@@ -77,6 +77,13 @@ func update_target_location(target_location):
 func attack_player():
 	if not is_alive or player == null:
 		return
+		
+	_player_hit_counter += 1
+	if _player_hit_counter < 4:
+		await get_tree().create_timer(_attack_pose_time).timeout
+		if is_alive and not is_queued_for_deletion():
+			_is_atk = false
+			$Sprite3D.texture = static_sprite
 
 	var curTime := Time.get_ticks_msec() / 1000.0
 	if curTime < _next_atk_tim:
@@ -89,10 +96,3 @@ func attack_player():
 	# Safely hit the player (they might be gone after game over)
 	if is_instance_valid(player) and player.has_method("take_damage"):
 		player.take_damage(atk_dmg)
-
-	_player_hit_counter += 1
-	if _player_hit_counter < 4:
-		await get_tree().create_timer(_attack_pose_time).timeout
-		if is_alive and not is_queued_for_deletion():
-			_is_atk = false
-			$Sprite3D.texture = static_sprite
