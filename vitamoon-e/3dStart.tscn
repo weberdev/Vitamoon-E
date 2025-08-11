@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dm46aiycg1qm3"]
+[gd_scene load_steps=28 format=3 uid="uid://dm46aiycg1qm3"]
 
 [ext_resource type="PackedScene" uid="uid://dy26xc485fhld" path="res://addons/srcoder_fps_controller/player.tscn" id="1_nfx5t"]
 [ext_resource type="Texture2D" uid="uid://cvgvu1cr6bfti" path="res://assets_2d/Ceiling Asset.png" id="2_mch7c"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://th67ugvnsidg" path="res://assets_3d/lobbyDesk.tscn" id="15_byy58"]
 [ext_resource type="PackedScene" uid="uid://cjecgtrn4nl5d" path="res://assets_3d/barrel.tscn" id="17_8frp1"]
 [ext_resource type="PackedScene" uid="uid://dtui4jt4lx3h7" path="res://assets_3d/Barrel.glb" id="17_byy58"]
+[ext_resource type="PackedScene" uid="uid://xvirvni0l0oy" path="res://addons/srcoder_fps_controller/mouse_lock.tscn" id="17_j8oc6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b65dc"]
 
@@ -2411,3 +2412,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5922, 0.0239993, -7.30709
 
 [node name="Enemy13" parent="." instance=ExtResource("9_a81nr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4341, 0.024, 6.79299)
+
+[node name="MouseLock" parent="." instance=ExtResource("17_j8oc6")]

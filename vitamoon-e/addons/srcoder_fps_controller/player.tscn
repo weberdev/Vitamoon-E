@@ -61,10 +61,14 @@ texture = ExtResource("3_fma8c")
 stretch_mode = 3
 
 [node name="HPTracker" type="TextureRect" parent="CanvasLayer"]
-offset_left = -1.0
-offset_top = 405.0
-offset_right = 230.0
-offset_bottom = 647.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 85.0
+offset_top = -397.0
+offset_right = 384.0
+offset_bottom = -81.0
+grow_vertical = 0
 texture = ExtResource("6_wytkb")
 expand_mode = 1
 
