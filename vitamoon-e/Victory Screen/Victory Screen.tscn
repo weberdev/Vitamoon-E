@@ -49,20 +49,17 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="VictoryText" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "The enemies have been extinguished. You killed $num amount of enemies. Now the 
-citizens of the moon will sleep easy, knowing the Special Moon Force has taken care 
-of the Sunny-E criminal scum. 
-
-Would you like to once again take up arms against such dastardly evil? Or has your 
-thirst for justice been righteously served?"
 
 [node name="Try Again" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 40)

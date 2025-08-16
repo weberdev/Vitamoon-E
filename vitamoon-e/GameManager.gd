@@ -8,6 +8,7 @@ func _ready():
 		mobile_hostile.dead.connect(_on_enemy_death)
 		
 func _on_enemy_death():
+	Global._update_kill_count()
 	remaining -= 1
 	print ("Enemies remaining: ", remaining)
 	if remaining <=0:

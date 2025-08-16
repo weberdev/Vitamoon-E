@@ -49,9 +49,6 @@ func _on_health_changed(h:int) -> void:
 	#Checking if player lost health from half
 	elif h == 1:
 		AudioController.Play_Second_Oof_SFX()
-	#While we don't yet have an end screen, this is commented out so you don't
-	#have to repeatedly hear the player die when taking damage after he died.
-	#Uncomment this out once we can properly end the game.
 	#Check if player is already dead.
 	elif h == 0:
 		AudioController.Play_Player_Died_SFX()
